@@ -26,22 +26,32 @@ Yazdığınız sorguları buradan test edebilirsiniz: [https://ergineer.com/asse
 
 Aşağıda istenilen sonuçlara ulaşabilmek için gerekli SQL sorgularını yazın.
 
-MIN-MAX, COUNT-AVG-SUM, GROUP BY, JOINS (INNER, OUTER, LEFT, RIGHT
-#ilk 3 soruyu join kullanmadan yazın. 1) Öğrencinin adını, soyadını ve kitap aldığı tarihleri listeleyin.
-SELECT ograd, ogrsoyad, atarih
-FROM ogrenci, islem
-WHERE ogrenci.ogrno = islem.ogrno 2) Fıkra ve hikaye türündeki kitapların adını ve türünü listeleyin.
-SELECT kitapadi, turadi
-FROM kitap, tur
-WHERE kitap.turno = tur.turno
-AND turadi IN('Fıkra', 'Hikaye') 3) 10B veya 10C sınıfındaki öğrencilerin numarasını, adını, soyadını ve okuduğu kitapları listeleyin.
-SELECT ogrenci.ogrno, ograd, ogrsoyad, kitapadi
-FROM ogrenci, islem, kitap
-WHERE ogrenci.ogrno = islem.ogrno
-AND islem.kitapno = kitap.kitapno
-AND ogrenci.sinif IN('10B', '10C')
+    MIN-MAX, COUNT-AVG-SUM, GROUP BY, JOINS (INNER, OUTER, LEFT, RIGHT
+    #ilk 3 soruyu join kullanmadan yazın.
+
+    1) Öğrencinin adını, soyadını ve kitap aldığı tarihleri listeleyin.
+
+    SELECT ograd, ogrsoyad, atarih
+    FROM ogrenci, islem
+    WHERE ogrenci.ogrno = islem.ogrno
+
+    2) Fıkra ve hikaye türündeki kitapların adını ve türünü listeleyin.
+
+    SELECT kitapadi, turadi
+    FROM kitap, tur
+    WHERE kitap.turno = tur.turno
+    AND turadi IN('Fıkra', 'Hikaye')
+
+    3) 10B veya 10C sınıfındaki öğrencilerin numarasını, adını, soyadını ve okuduğu kitapları listeleyin.
+
+    SELECT ogrenci.ogrno, ograd, ogrsoyad, kitapadi
+    FROM ogrenci, islem, kitap
+    WHERE ogrenci.ogrno = islem.ogrno
+    AND islem.kitapno = kitap.kitapno
+    AND ogrenci.sinif IN('10B', '10C')
 
     #join ile yazın
+
     4) Öğrencinin adını, soyadını ve kitap aldığı tarihleri listeleyin.
 
     SELECT o.ograd, o.ogrsoyad, i.atarih FROM ogrenci as o
@@ -114,7 +124,6 @@ AND ogrenci.sinif IN('10B', '10C')
     JOIN kitap as k ON k.kitapno = i.kitapno
     WHERE o.sinif IN('10A', '10B')
     GROUP BY o.ograd, o.ogrsoyad
-
 
     14) Tüm kitapların ortalama sayfa sayısını bulunuz.
     #AVG
